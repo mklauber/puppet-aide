@@ -1,2 +1,3 @@
-puppet-aide
+mklauber-aide
 ===========
+
