@@ -1,17 +1,18 @@
 # aide::params sets the default values for parameters.
 class aide::params {
-  $package = 'aide'
-  $version = latest
-  $db_path = '/var/lib/aide/aide.db.gz'
+  $package      = 'aide'
+  $version      = latest
+  $db_path      = '/var/lib/aide/aide.db.gz'
   $db_temp_path = '/var/lib/aide/aide.db.new'
-  $hour    = 0
+  $hour         = 0
 
-  $aide_path = $::operatingsystem ? {
-    /(?i-mx:ubuntu|debian)/ => '/usr/bin/aide',
-    default                 => '/usr/sbin/aide'
-  }
-  $conf_path = $::operatingsystem ? {
-    /(?i-mx:ubuntu|debian)/ => '/etc/aide/aide.conf',
-    default                 => '/etc/aide.conf'
+  case $::osfamily {
+    'Debian': {
+      $aide_path = '/usr/bin/aide'
+      $conf_path = '/etc/aide/aide.conf'
+    }
+    default: {
+      fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
+    }
   }
 }
