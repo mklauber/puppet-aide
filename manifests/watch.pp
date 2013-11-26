@@ -1,19 +1,24 @@
 # aide::watch defines a path/rule combination in the aide.conf file
-define aide::watch ( $path,
-  $exclude = false,
-  $rules   = undef,
-  $order   = 50
+define aide::watch ( $path = $name,
+  $type  = 'regular',
+  $rules = undef,
+  $order = 50
 ) {
   include aide
 
   $_rules = any2array($rules)
+  $_type = downcase($type)
 
-  $content = $exclude ? {
-    true    => inline_template("!${path}"),
-    default => inline_template("${path} <%= @_rules.join('+') %>\n")
+  validate_absolute_path($path)
+
+  $content = $_type ? {
+    'regular' => inline_template("${path} <%= @_rules.join('+') %>\n"),
+    'equals'  => inline_template("=${path} <%= @_rules.join('+') %>\n"),
+    'exclude' => inline_template("!${path}"),
+    default   => fail("Invalid type of watch.  Acceptable values are ['regular', 'equals', 'excludes']")
   }
 
-  concat::fragment { $path:
+  concat::fragment { $title:
     target  => 'aide.conf',
     order   => $order,
     content => $content
