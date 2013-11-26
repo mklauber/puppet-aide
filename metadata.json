@@ -1,9 +1,9 @@
 {
   "name": "mklauber-aide",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "summary": "A puppet module for installing and configuring aide",
   "author": "Matthew Lauber",
-  "description": "",
+  "description": "A puppet module for setting up and configuring aide (Advanced Intrusion Detection System) via puppet.",
   "dependencies": [
     {
       "name": "puppetlabs/concat",
