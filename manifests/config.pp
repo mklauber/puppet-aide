@@ -1,3 +1,4 @@
+# class managing aide configuration.
 class aide::config inherits aide {
   concat { 'aide.conf':
     path    => $::aide::conf_path,
