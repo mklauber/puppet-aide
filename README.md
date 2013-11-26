@@ -57,7 +57,26 @@ Sometimes you wish to use the same rule to watch multiple directories, and in ke
 
 Here we are defining a rule in called **MyRule** which will add the line `MyRule = p+md5`.  The next two stanzas can reference that rule.  They will show up as `/etc MyRule` and `/path/to/other/config/dir MyRule`.
 
+Create a rule to exlude directories
+-----------
 
+    aide::watch { '/var/log':
+      path => '/etc',
+      type => 'exclude' 
+    }
+
+This with ignore all files under /var/log.  It adds the line `!/var/log` to the config file.
+
+Create a rule to specify only specific files
+-----------
+
+    aide::watch { '/var/log/messages':
+      path => '/etc',
+      type => 'equals',
+      rules => 'MyRule'
+    }
+
+This with watch only the file /var/log/messages.  It will ignore /var/log/messages/thingie.  It adds the line `=/var/log/messages MyRule` to the config file.
 
 
 

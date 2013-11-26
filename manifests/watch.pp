@@ -15,7 +15,7 @@ define aide::watch ( $path = $name,
     'regular' => inline_template("${path} <%= @_rules.join('+') %>\n"),
     'equals'  => inline_template("=${path} <%= @_rules.join('+') %>\n"),
     'exclude' => inline_template("!${path}"),
-    default   => fail("Type field value ${type} is invalid.  Acceptable values are ['regular', 'equals', 'excludes']")
+    default   => fail("Type field value ${type} is invalid.  Acceptable values are ['regular', 'equals', 'exclude']")
   }
 
   concat::fragment { $title:
