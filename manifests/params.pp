@@ -20,5 +20,7 @@ class aide::params {
     }
   }
   $aide_rules_defaults = {
+    $name = undef,
+    $rules = undef,
   }
 }
