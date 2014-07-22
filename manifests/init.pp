@@ -15,6 +15,6 @@ class aide (
   class  { '::aide::cron': } ->
   anchor { 'aide::end': }
 
-  $aide_rules = hiera_hash( 'aide_rules', $aide::params )
-  create_resources('aide::rule', $aide_rules)
+  $aide::rules_hash = hiera_hash( 'aide_rules', $aide::params::aide_rules_defaults )
+  create_resources('aide::rule', $aide::rules_hash)
 }
