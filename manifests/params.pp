@@ -19,8 +19,14 @@ class aide::params {
       fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
     }
   }
+
   $aide_rules_defaults = {
     $name = undef,
+    $rules = undef,
+  }
+
+  $aide_watch_defaults = {
+    $path = undef,
     $rules = undef,
   }
 }
