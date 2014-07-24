@@ -18,7 +18,7 @@ class aide (
   # Creates resources for aide::rule pulled from hiera
   $aide_rules = hiera_hash( 'rules_hash', false )
   if $aide_rules {
-    create_resources('aide::rule', $_rules)
+    create_resources('aide::rule', $aide_rules)
   }
 
   # Creates resources for aide::watch pulled from hiera
