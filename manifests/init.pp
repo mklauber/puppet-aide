@@ -15,9 +15,15 @@ class aide (
   class  { '::aide::cron': } ->
   anchor { 'aide::end': }
 
-  $aide_rules = hiera_hash( 'aide::rules_hash', $aide::params::aide_rules_defaults )
-  create_resources('aide::rule', $aide_rules)
+  # Creates resources for aide::rule pulled from hiera
+  $aide_rules = hiera_hash( 'rules_hash', false )
+  if $aide_rules {
+    create_resources('aide::rule', $aide_rules)
+  }
 
-  $aide_watch = hiera_hash( 'aide::watch_hash', $aide::params::aide_watch_defaults )
-  create_resources('aide::watch', $aide_watch)
+  # Creates resources for aide::watch pulled from hiera
+  $aide_watch = hiera_hash( 'watch_hash', false )
+  if $aide_watch {
+    create_resources('aide::watch', $aide_watch)
+  }
 }
