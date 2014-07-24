@@ -16,13 +16,13 @@ class aide (
   anchor { 'aide::end': }
 
   # Creates resources for aide::rule pulled from hiera
-  $aide_rules = hiera_hash( 'rules_hash', false )
+  $aide_rules = hiera_hash( 'aide::rules_hash', false )
   if $aide_rules {
     create_resources('aide::rule', $aide_rules)
   }
 
   # Creates resources for aide::watch pulled from hiera
-  $aide_watch = hiera_hash( 'watch_hash', false )
+  $aide_watch = hiera_hash( 'aide::watch_hash', false )
   if $aide_watch {
     create_resources('aide::watch', $aide_watch)
   }
