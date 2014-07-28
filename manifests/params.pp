@@ -7,7 +7,7 @@ class aide::params {
   $hour             = 3
   $minite           = 0
   $command          = "${::aide::params::aide_path} --check"
-  $check_parameters = "--config $conf_path"
+#  $check_parameters = "--config $conf_path"
 
   case $::osfamily {
     'Debian': {
@@ -21,5 +21,6 @@ class aide::params {
     default: {
       fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
     }
+  $check_parameters = "--config $conf_path"
   }
 }
