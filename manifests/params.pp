@@ -22,6 +22,6 @@ class aide::params {
       fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
     }
   }
-  $command          = "${::aide::params::aide_path} --check"
-  $check_parameters = "--config ${conf_path}"
+  $command          = "${::aide::params::aide_path}"
+  $check_parameters = "--config= ${conf_path}"
 }
