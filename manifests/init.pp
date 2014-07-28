@@ -1,13 +1,14 @@
 # the aide class manages some the configuration of aide
 class aide (
-    $package      = $aide::params::package,
-    $version      = $aide::params::version,
-    $conf_path    = $aide::params::conf_path,
-    $db_path      = $aide::params::db_path,
-    $db_temp_path = $aide::params::db_temp_path,
-    $hour         = $aide::params::hour,
-    $minute       = $aide::params::minute,
-    $command      = $aide::params::command,
+    $package          = $aide::params::package,
+    $version          = $aide::params::version,
+    $conf_path        = $aide::params::conf_path,
+    $db_path          = $aide::params::db_path,
+    $db_temp_path     = $aide::params::db_temp_path,
+    $hour             = $aide::params::hour,
+    $minute           = $aide::params::minute,
+    $command          = $aide::params::command,
+    $check_parameters = $aide::params::check_parameters,
   ) inherits aide::params {
 
   anchor { 'aide::begin': } ->
