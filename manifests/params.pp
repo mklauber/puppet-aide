@@ -6,8 +6,6 @@ class aide::params {
   $db_temp_path     = '/var/lib/aide/aide.db.new'
   $hour             = 3
   $minite           = 0
-#  $command          = "${::aide::params::aide_path} --check"
-#  $check_parameters = "--config ${conf_path}"
 
   case $::osfamily {
     'Debian': {
@@ -22,6 +20,8 @@ class aide::params {
       fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
     }
   }
+
   $command          = "${::aide::params::aide_path}"
-  $check_parameters = "--config= ${conf_path}"
+  $check_parameters = "--config=${conf_path}"
+
 }
