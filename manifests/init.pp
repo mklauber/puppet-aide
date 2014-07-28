@@ -6,6 +6,8 @@ class aide (
     $db_path      = $aide::params::db_path,
     $db_temp_path = $aide::params::db_temp_path,
     $hour         = $aide::params::hour
+    $minute       = $aide::params::minute
+    $command      = $aide::params::command
   ) inherits aide::params {
 
   anchor { 'aide::begin': } ->

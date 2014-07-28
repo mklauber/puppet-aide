@@ -4,7 +4,9 @@ class aide::params {
   $version      = latest
   $db_path      = '/var/lib/aide/aide.db.gz'
   $db_temp_path = '/var/lib/aide/aide.db.new'
-  $hour         = 0
+  $hour         = 3
+  $minite       = 0
+  $command      = "${::aide::params::aide_path} --check",
 
   case $::osfamily {
     'Debian': {
