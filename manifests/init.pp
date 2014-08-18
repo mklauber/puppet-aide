@@ -7,6 +7,7 @@ class aide (
     $db_temp_path     = $aide::params::db_temp_path,
     $hour             = $aide::params::hour,
     $minute           = $aide::params::minute,
+    $email            = $aide::params::email,
     $command          = $aide::params::command,
     $check_parameters = $aide::params::check_parameters,
   ) inherits aide::params {
