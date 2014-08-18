@@ -1,7 +1,7 @@
 # Class for managing aide's cron job.
 class aide::cron inherits aide {
   cron { 'aide':
-    command => "${aide::command} --check ${aide::check_parameters}",
+    command => "${aide::command} --check ${aide::check_parameters} /usr/bin/mail -s ${"$HOSTNAME - Daily AIDE integrity check"} ${aide::email}",
 #    command => $::aide::command,
     user    => 'root',
     hour    => $::aide::hour,
