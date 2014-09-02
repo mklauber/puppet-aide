@@ -7,6 +7,6 @@ class aide::install inherits aide {
 
   # Create /tmp/aide file if it does not exist - Used with nagios check
   exec { "/usr/bin/touch /var/lib/aide/lastrun":
-    unless => "/usr/bin/test -d /var/lib/aide/lastrun"
+    unless => "/usr/bin/test /var/lib/aide/lastrun"
     }
 }
