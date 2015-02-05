@@ -13,4 +13,13 @@ class aide::config inherits aide {
     order   => 01,
     content => template( 'aide/aide.conf.erb')
   }
+
+  file { '/etc/default/aide':
+    ensure => present,
+  }->
+  file_line { 'Append a line to /etc/default/aide':
+    path   => '/etc/default/aide',
+    line   => 'COPYNEWDB=no',
+    match  => 'COPYNEWDB=yes',
+  }
 }
