@@ -19,7 +19,7 @@ class aide::config inherits aide {
   }->
   file_line { 'Append a line to /etc/default/aide':
     path   => '/etc/default/aide',
-    line   => 'COPYNEWDB=no',
-    match  => 'COPYNEWDB=yes',
+    line   => 'COPYNEWDB=yes',
+    match  => 'COPYNEWDB=.*',
   }
 }
