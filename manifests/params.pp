@@ -7,7 +7,6 @@ class aide::params {
   $hour             = 3
   $minite           = 0
   $email            = 'root@localhost'
-  $copynewdb        = yes
 
   case $::osfamily {
     'Debian': {
