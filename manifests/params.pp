@@ -2,8 +2,8 @@
 class aide::params {
   $package          = 'aide'
   $version          = latest
-  $db_path          = '/var/lib/aide/aide.db.gz'
-  $db_temp_path     = '/var/lib/aide/aide.db.new'
+  $db_path          = '/var/lib/aide/aide.db'
+  $db_temp_path     = '/var/lib/aide/aide.db'
   $hour             = 3
   $minite           = 0
   $email            = 'root@localhost'
