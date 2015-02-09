@@ -4,16 +4,16 @@ class aide::firstrun inherits aide {
     command     => "${::aide::params::aide_path} --init --config ${::aide::conf_path}",
     user        => 'root',
     refreshonly => true,
+    timeout     => 0,
     subscribe   => Concat['aide.conf']
-    timeout     => 0
   }
 
   exec { 'install aide db':
     command     => "/bin/cp -f ${::aide::db_temp_path} ${::aide::db_path}",
     user        => 'root',
     refreshonly => true,
+    timeout     => 0,
     subscribe   => Exec['aide init']
-    timeout     => 0
   }
 
   file { $::aide::db_path:
