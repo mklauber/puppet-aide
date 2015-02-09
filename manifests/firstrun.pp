@@ -5,6 +5,7 @@ class aide::firstrun inherits aide {
     user        => 'root',
     refreshonly => true,
     subscribe   => Concat['aide.conf']
+    timeout     => 0
   }
 
   exec { 'install aide db':
@@ -12,6 +13,7 @@ class aide::firstrun inherits aide {
     user        => 'root',
     refreshonly => true,
     subscribe   => Exec['aide init']
+    timeout     => 0
   }
 
   file { $::aide::db_path:
