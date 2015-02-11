@@ -10,4 +10,13 @@ class aide::install inherits aide {
     unless  => "/usr/bin/test /var/lib/aide/lastrun",
     timeout => 0,
   }
+
+  # Ensures initaidedb.sh script is present in /usr/sbin/
+  file { '/usr/sbin/initaidedb.sh':
+    ensure => 'present',
+    source => 'puppet:///modules/aide/initaidedb.sh',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+  }
 }
