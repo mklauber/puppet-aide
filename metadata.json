@@ -16,7 +16,7 @@
   ],
   "types": [],
   "checksums": {},
-  "source": "https://github.com/mklauber/aide",
+  "source": "https://github.com/mklauber/puppet-aide",
   "project_page": "https://github.com/mklauber/puppet-aidee",
   "license": "Apache Version 2.0"
 }
