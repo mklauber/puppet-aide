@@ -14,7 +14,7 @@ define aide::watch ( $path = $name,
   $content = $_type ? {
     'regular' => inline_template("${path} <%= @_rules.join('+') %>\n"),
     'equals'  => inline_template("=${path} <%= @_rules.join('+') %>\n"),
-    'exclude' => inline_template("!${path}"),
+    'exclude' => inline_template("!${path}\n"),
     default   => fail("Type field value ${type} is invalid.  Acceptable values are ['regular', 'equals', 'excludes']")
   }
 
