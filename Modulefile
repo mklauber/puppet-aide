@@ -1,5 +1,5 @@
 name 'mklauber-aide'
-version '1.1.0'
+version '1.1.1'
 author 'Matthew Lauber'
 license 'Apache Version 2.0'
 source 'https://github.com/mklauber/aide'
