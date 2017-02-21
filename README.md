@@ -6,6 +6,10 @@ Build Status: [![Build Status](https://travis-ci.org/mklauber/puppet-aide.png)](
 `mklauber/aide` is a puppet module for managing Aide (Advanced Intrustion Detection Environment). It allows you to define Rules and File/folder watches via defined types.  Refer to the Aide [manual](http://aide.sourceforge.net/stable/manual.html) for details about Aide configuration options.
 
 
+WARNING!!!
+==========
+This project is no longer actively maintained.  While bug fixes will be accepted, no new features will be added.  The author makes no promises about the ability of this module to work with newer versions of puppet.  
+
 Examples
 ==========
 
