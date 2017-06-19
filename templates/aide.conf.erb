@@ -5,6 +5,9 @@ database=file:<%= @db_path %>
 database_out=file:<%= @db_temp_path %>
 database_new=file:<%= @db_temp_path %>
 
+# gzip output to the database?
+gzip_dbout=<%= @gzip_dbout %>
+
 # Rule predefined types:
 #p:      permissions
 #i:      inode:
