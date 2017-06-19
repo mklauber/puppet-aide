@@ -21,7 +21,7 @@ class aide::firstrun inherits aide {
     mode    => '0600',
     require => Exec['install aide db']
   }
-  file { '/var/lib/aide/aide.db.new.gz':
+  file { $::aide::db_temp_path:
     owner   => root,
     group   => root,
     mode    => '0600',
